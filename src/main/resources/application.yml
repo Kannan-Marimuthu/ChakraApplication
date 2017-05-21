@@ -4,7 +4,7 @@ server:
   contextPath: /chakra
 ---
 spring:
-  profiles:  default
+  profiles:  test
 datasource:
   chakraDB:
     url: jdbc:h2:~/test
@@ -20,7 +20,7 @@ datasource:
       dialect: org.hibernate.dialect.H2Dialect
 ---
 spring:
-  profiles: local,prod
+  profiles: default,local,prod
 datasource:
   chakraDB:
     url: jdbc:mysql://localhost:3306/test_schema

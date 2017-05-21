@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chakra.root.hrm.model.User;
-import com.chakra.root.hrm.repositories.UserRepository;
+import com.chakra.root.hrm.repositories.UserRepo;
 
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 
 	public User findById(Long id) {
 		return userRepository.findOne(id);
