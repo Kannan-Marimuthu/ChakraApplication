@@ -48,7 +48,6 @@ public class UserLevelServiceImpl implements UserLevelService {
 
 	@Override
 	public List<UserLevel> findAllUsersLevel() {
-		// TODO Auto-generated method stub
 		return userLevelRepository.findAll();
 	}
 
