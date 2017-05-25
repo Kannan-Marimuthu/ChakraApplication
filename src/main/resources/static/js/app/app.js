@@ -3,6 +3,7 @@ var app = angular.module('crudApp',['ui.router','ngStorage']);
 app.constant('urls', {
     BASE: 'http://localhost:8080/chakra',
     USER_SERVICE_API : 'http://localhost:8080/chakra/api/user/'
+    USER_LEVEL_SERVICE_API : 'http://localhost:8080/chakra/api/userLevel/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
