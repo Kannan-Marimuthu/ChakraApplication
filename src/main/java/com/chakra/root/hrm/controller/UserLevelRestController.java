@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.chakra.root.common.util.ChakraErrorType;
-import com.chakra.root.hrm.model.User;
 import com.chakra.root.hrm.model.UserLevel;
 import com.chakra.root.hrm.service.UserLevelService;
 
@@ -118,17 +117,17 @@ public class UserLevelRestController {
 					HttpStatus.NOT_FOUND);
 		}
 		userLevelService.deleteUserLevelById(id);
-		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<UserLevel>(HttpStatus.NO_CONTENT);
 	}
 
 	// ------------------- Delete All User Levels-----------------------------
 
 	@RequestMapping(value = "/userLevel/", method = RequestMethod.DELETE)
-	public ResponseEntity<User> deleteAllUsers() {
+	public ResponseEntity<UserLevel> deleteAllUsers() {
 		logger.info("Deleting All User Levels");
 
 		userLevelService.deleteAllUsersLevel();
-		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<UserLevel>(HttpStatus.NO_CONTENT);
 	}
 
 }

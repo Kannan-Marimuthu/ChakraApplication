@@ -1,9 +1,15 @@
 package com.chakra.root.hrm.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.*;
 import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "APP_USER_LEVEL")
@@ -23,7 +29,7 @@ public class UserLevel implements Serializable {
 	private String name;
 
 	@Column(name = "LEVEL_DESC", nullable = true)
-	private Integer desc;
+	private String desc;
 
 	public Long getId() {
 		return id;
@@ -41,12 +47,17 @@ public class UserLevel implements Serializable {
 		this.name = name;
 	}
 
-	public Integer getDesc() {
+	public String getDesc() {
 		return desc;
 	}
 
-	public void setDesc(Integer desc) {
+	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+
+	@Override
+	public String toString() {
+		return "UserLevel [id=" + id + ", name=" + name + ", desc=" + desc + "]";
 	}
 
 	@Override
@@ -88,10 +99,4 @@ public class UserLevel implements Serializable {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "UserLevel [id=" + id + ", name=" + name + ", desc=" + desc + "]";
-	}
-
 }

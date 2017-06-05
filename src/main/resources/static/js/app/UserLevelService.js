@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').factory('UserLevelService',
+angular.module('crudUserLevelApp').factory('UserLevelService',
     ['$localStorage', '$http', '$q', 'urls',
         function ($localStorage, $http, $q, urls) {
 
@@ -22,7 +22,7 @@ angular.module('crudApp').factory('UserLevelService',
                     .then(
                         function (response) {
                             console.log('Fetched successfully all users');
-                            $localStorage.users = response.data;
+                            $localStorage.userLevels = response.data;
                             deferred.resolve(response);
                         },
                         function (errResponse) {
@@ -34,7 +34,7 @@ angular.module('crudApp').factory('UserLevelService',
             }
 
             function getAllUserLevels(){
-                return $localStorage.users;
+                return $localStorage.userLevels;
             }
 
             function getUserLevel(id) {

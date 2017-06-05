@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('UserController',
+angular.module('crudUserApp').controller('UserController',
     ['UserService', '$scope',  function( UserService, $scope) {
 
         var self = this;

@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('crudApp').controller('UserLevelController',
-    ['UserService', '$scope',  function( UserLevelService, $scope) {
+angular.module('crudUserLevelApp').controller('UserLevelController',
+    ['UserLevelService', '$scope',  function( UserLevelService, $scope) {
 
         var self = this;
-        self.user = {};
-        self.users=[];
+        self.userLevel = {};
+        self.userLevels=[];
 
         self.submit = submit;
         self.getAllUserLevels = getAllUserLevels;
@@ -24,25 +24,25 @@ angular.module('crudApp').controller('UserLevelController',
 
         function submit() {
             console.log('Submitting');
-            if (self.user.id === undefined || self.user.id === null) {
-                console.log('Saving New UserLevel', self.user);
-                createUserLevel(self.user);
+            if (self.userLevel.id === undefined || self.userLevel.id === null) {
+                console.log('Saving New UserLevel', self.userLevel);
+                createUserLevel(self.userLevel);
             } else {
-                updateUserLevel(self.user, self.user.id);
-                console.log('UserLevel updated with id ', self.user.id);
+                updateUserLevel(self.userLevel, self.userLevel.id);
+                console.log('UserLevel updated with id ', self.userLevel.id);
             }
         }
 
-        function createUserLevel(user) {
-            console.log('About to create user');
-            UserLevelService.createUserLevel(user)
+        function createUserLevel(userLevel) {
+            console.log('About to create userLevel');
+            UserLevelService.createUserLevel(userLevel)
                 .then(
                     function (response) {
                         console.log('UserLevel created successfully');
                         self.successMessage = 'UserLevel created successfully';
                         self.errorMessage='';
                         self.done = true;
-                        self.user={};
+                        self.userLevel={};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
@@ -54,9 +54,9 @@ angular.module('crudApp').controller('UserLevelController',
         }
 
 
-        function updateUserLevel(user, id){
-            console.log('About to update user');
-            UserLevelService.updateUserLevel(user, id)
+        function updateUserLevel(userLevel, id){
+            console.log('About to update userLevel');
+            UserLevelService.updateUserLevel(userLevel, id)
                 .then(
                     function (response){
                         console.log('UserLevel updated successfully');
@@ -82,13 +82,13 @@ angular.module('crudApp').controller('UserLevelController',
                         console.log('UserLevel '+id + ' removed successfully');
                     },
                     function(errResponse){
-                        console.error('Error while removing user '+id +', Error :'+errResponse.data);
+                        console.error('Error while removing userLevel '+id +', Error :'+errResponse.data);
                     }
                 );
         }
 
 
-        function getAllUserLevelLevels(){
+        function getAllUserLevels(){
             return UserLevelService.getAllUserLevels();
         }
 
@@ -96,18 +96,18 @@ angular.module('crudApp').controller('UserLevelController',
             self.successMessage='';
             self.errorMessage='';
             UserLevelService.getUserLevel(id).then(
-                function (user) {
-                    self.user = user;
+                function (userLevel) {
+                    self.userLevel = userLevel;
                 },
                 function (errResponse) {
-                    console.error('Error while removing user ' + id + ', Error :' + errResponse.data);
+                    console.error('Error while removing userLevel level ' + id + ', Error :' + errResponse.data);
                 }
             );
         }
         function reset(){
             self.successMessage='';
             self.errorMessage='';
-            self.user={};
+            self.userLevel={};
             $scope.myForm.$setPristine(); //reset Form
         }
     }
