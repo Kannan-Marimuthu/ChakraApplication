@@ -12,9 +12,8 @@ import com.chakra.root.hrm.service.ModuleService;
 @RequestMapping("/api")
 public class ModuleController {
 
-	public static final Logger logger = LoggerFactory
-			.getLogger(UserLevelRestController.class);
-	
+	public static final Logger logger = LoggerFactory.getLogger(ModuleController.class);
+
 	@Autowired
-	ModuleService moduleService; 
+	ModuleService moduleService;
 }

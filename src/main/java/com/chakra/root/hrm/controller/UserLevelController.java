@@ -21,10 +21,10 @@ import com.chakra.root.hrm.service.UserLevelService;
 
 @RestController
 @RequestMapping("/api")
-public class UserLevelRestController {
+public class UserLevelController {
 
 	public static final Logger logger = LoggerFactory
-			.getLogger(UserLevelRestController.class);
+			.getLogger(UserLevelController.class);
 
 	@Autowired
 	UserLevelService userLevelService; // Service which will do all data

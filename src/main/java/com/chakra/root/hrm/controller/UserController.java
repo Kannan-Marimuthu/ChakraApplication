@@ -21,9 +21,9 @@ import com.chakra.root.hrm.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-public class UserRestController {
+public class UserController {
 
-	public static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
+	public static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	UserService userService; // Service which will do all data retrieval/manipulation work

@@ -12,8 +12,7 @@ import com.chakra.root.hrm.service.PagesService;
 @RequestMapping("/api")
 public class PageController {
 
-	public static final Logger logger = LoggerFactory
-			.getLogger(UserLevelRestController.class);
+	public static final Logger logger = LoggerFactory.getLogger(PageController.class);
 
 	@Autowired
 	PagesService pagesService;
