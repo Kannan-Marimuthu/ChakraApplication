@@ -45,12 +45,12 @@ public class UserLevelController {
 
 	@RequestMapping(value = "/userLevel/{id}", method = RequestMethod.GET)
 	public ResponseEntity<UserLevel> getUser(@PathVariable("id") long id) {
-		logger.info("Fetching User with id {}", id);
+		logger.info("Fetching UserLevel with id {}", id);
 		UserLevel userLevel = userLevelService.findById(id);
 		if (userLevel == null) {
-			logger.error("User with id {} not found.", id);
+			logger.error("UserLevel with id {} not found.", id);
 			return new ResponseEntity(
-					new ChakraErrorType("User with id " + id + " not found"),
+					new ChakraErrorType("UserLevel with id " + id + " not found"),
 					HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<UserLevel>(userLevel, HttpStatus.OK);
@@ -64,10 +64,10 @@ public class UserLevelController {
 		logger.info("Creating User : {}", userLevel);
 
 		if (userLevelService.isUserLevelExist(userLevel)) {
-			logger.error("Unable to create. A User with name {} already exist",
+			logger.error("Unable to create. A UserLevel with name {} already exist",
 					userLevel.getName());
 			return new ResponseEntity(
-					new ChakraErrorType("Unable to create. A User with name "
+					new ChakraErrorType("Unable to create. A UserLevel with name "
 							+ userLevel.getName() + " already exist."),
 					HttpStatus.CONFLICT);
 		}
@@ -84,15 +84,15 @@ public class UserLevelController {
 	@RequestMapping(value = "/userLevel/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<UserLevel> updateUser(@PathVariable("id") long id,
 			@RequestBody UserLevel userLevel) {
-		logger.info("Updating User with id {}", id);
+		logger.info("Updating UserLevel with id {}", id);
 
 		UserLevel currentUserLevel = userLevelService.findById(id);
 
 		if (currentUserLevel == null) {
-			logger.error("Unable to update. User with id {} not found.", id);
+			logger.error("Unable to update. UserLevel with id {} not found.", id);
 			return new ResponseEntity(
 					new ChakraErrorType(
-							"Unable to upate. User with id " + id + " not found."),
+							"Unable to upate. UserLevel with id " + id + " not found."),
 					HttpStatus.NOT_FOUND);
 		}
 
